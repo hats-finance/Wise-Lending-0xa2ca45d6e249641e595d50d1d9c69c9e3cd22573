@@ -112,8 +112,8 @@ Breakdown by folder:
 
 - **Title:** Potential for Residual aToken Stuck in AaveHub Contract
 
-**Summary:** A user has found an issue with the `AaveHub.withdrawExactAmount` function in the WiseLending contract. This could result in stuck
-**Link**: [Issue #7](https://github.com/hats-finance/Wise-Lending-0xa2ca45d6e249641e595d50d1d9c69c9e3cd22573/issues/7)
+ **Summary:** A user has found an issue with the `AaveHub.withdrawExactAmount` function in the WiseLending contract. This could result in stuck
+ **Link**: [Issue #7](https://github.com/hats-finance/Wise-Lending-0xa2ca45d6e249641e595d50d1d9c69c9e3cd22573/issues/7)
 
 
 - **Issue with Liquidation Logic Causing Economic Loss**-
