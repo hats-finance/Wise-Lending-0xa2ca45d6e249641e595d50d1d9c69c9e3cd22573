@@ -1,7 +1,7 @@
 # **Wise Lending Audit Competition on Hats.finance** 
 
 
-## Introduction to Hats.finance
+## About Hats.finance
 
 
 Hats.finance builds autonomous security infrastructure for integration with major DeFi protocols to secure users' assets. 
@@ -9,14 +9,13 @@ It aims to be the decentralized choice for Web3 security, offering proactive sec
 The protocol facilitates audit competitions to quickly secure smart contracts by having auditors compete, thereby reducing auditing costs and accelerating submissions. 
 This aligns with their mission of fostering a robust, secure, and scalable Web3 ecosystem through decentralized security solutions​.
 
-## Wise Lending One liner
+## About Wise Lending 
 
-Decentralized liquidity market that allows users to supply crypto assets and start earning a variable APY from borrowers
+Wise Lending is a decentralized liquidity market that allows users to supply crypto assets and start earning a variable APY from borrowers
 
 ## About Hats Audit Competition
 
-
-Hats Audit Competitions offer a unique and decentralized approach to enhancing the security of web3 projects. Leveraging the large collective expertise of hundreds of skilled auditors, these competitions foster a proactive bug hunting environment to fortify projects before their launch. Unlike traditional security assessments, Hats Audit Competitions operate on a time-based and results-driven model, ensuring that only successful auditors are rewarded for their contributions. This pay-for-results ethos not only allocates budgets more efficiently by paying exclusively for identified vulnerabilities but also retains funds if no issues are discovered. With a streamlined evaluation process, Hats prioritizes quality over quantity by rewarding the first submitter of a vulnerability, thus eliminating duplicate efforts and attracting top talent in web3 auditing. The process embodies Hats Finance's commitment to reducing fees, maintaining project control, and promoting high-quality security assessments, setting a new standard for decentralized security in the web3 space​​.
+Hats Audit Competitions offer a unique and decentralized approach to enhancing the security of web3 projects. Leveraging the large collective expertise of hundreds of skilled auditors, these competitions foster a proactive bug hunting environment to fortify projects before their launch. Unlike traditional security assessments, Hats Audit Competitions operate on a time-based and results-driven model, that ensures that only successful auditors are rewarded for their contributions. This pay-for-results ethos not only allocates budgets more efficiently by paying exclusively for identified vulnerabilities but also retains funds if no issues are discovered. With a streamlined evaluation process, Hats prioritizes quality over quantity by rewarding the first submitter of a vulnerability, thus eliminating duplicate efforts and attracting top talent in web3 auditing. The process embodies Hats Finance's commitment to reducing fees, maintaining project control, and promoting high-quality security assessments, setting a new standard for decentralized security in the web3 space​​.
 
 
 ## Competition Details
@@ -24,9 +23,11 @@ Hats Audit Competitions offer a unique and decentralized approach to enhancing t
 
 - Type: A public audit competition hosted by Wise Lending
 - Duration: 11 days
-- Maximum Reward: $200,000
-- Submissions: 11
-- Total Payout: $16,700 distributed among 11 participants.
+- Prize Pool: $160,000
+- Maximum Reward: $25,000 for a high severity submission
+- Total Submissions: 59
+- Valid Submissions: 11 (all low severity) 
+- Total Payout: $13,400 distributed among 7 participants.
 
 ## Scope of Audit
 
@@ -34,26 +35,25 @@ Hats Audit Competitions offer a unique and decentralized approach to enhancing t
 
 Wise Lending is a decentralized liquidity market that allows users to supply crypto assets and start earning a variable APY from borrowers. Lend APY is best-in-class because of integrated yield sources. 
 
-To date, yield aggregators have not been able to eclipse the TVL of simple lend platforms like Aave, and we believe this is because lenders don't have the flixibility they have on Aave to borrow against their deposits. But we also believe that simple lend platforms would see much higher TVLs if the APY offered to lenders was closer to what is offered on decentralized yield platforms. Pendle has emerged recently as the premire yield source for dependable decentralized single-asset yield farming, and we interfaced certain Pendle pools (and other sources like Lido stETH) into Wise Lending, so that borrowers can arbitrage our variable borrow rates with these yield opportunities, without leaving our platform. This creates a constant high demand for borrowing, which raises our APY for lenders to industry competitive levels. 
+To date, yield aggregators have not been able to eclipse the TVL of simple lend platforms like Aave, and we believe this is because lenders don't have the flexibility they have on Aave to borrow against their deposits. But we also believe that simple lend platforms would see much higher TVLs if the APY offered to lenders was closer to what is offered on decentralized yield platforms. Pendle has emerged recently as the premire yield source for dependable decentralized single-asset yield farming, and we interfaced certain Pendle pools (and other sources like Lido stETH) into Wise Lending, so that borrowers can arbitrage our variable borrow rates with these yield opportunities, without leaving our platform. This creates a constant high demand for borrowing, which raises our APY for lenders to industry competitive levels. 
 
 Wise Lending offers the best of both worlds to its users: Best-in-class APY for lenders, of any platform that offers the flexibility to borrow against deposits, and best-in-class arbitrage opportunities for borrowers, who can apply leverage to the existing best yield sources available.
 
 ## Audit competition scope
 
-- Babylonian.sol
-- FeeManager
-- MainHelper.sol
-- OwnableMaster.sol
-- PoolManager.sol
-- PositionNFTs.sol
-- WiseCore.sol
-- WiseLending.sol
-- WiseLendingDeclaration.sol
-- WiseLowLevelHelper.sol
+The following files in the `contrats` directory at https://github.com/hats-finance/Wise-Lending-0xa2ca45d6e249641e595d50d1d9c69c9e3cd22573 are all in scope:
 
-Breakdown by folder:
 ```
-.
+├── Babylonian.sol
+├── FeeManager
+├── MainHelper.sol
+├── OwnableMaster.sol
+├── PoolManager.sol
+├── PositionNFTs.sol
+├── WiseCore.sol
+├── WiseLending.sol
+├── WiseLendingDeclaration.sol
+├── WiseLowLevelHelper.sol
 ├── DerivativeOracles
 │   ├── CustomOracleSetup.sol
 │   ├── PendleChildLpOracle.sol
@@ -115,7 +115,7 @@ Breakdown by folder:
 
 - **Oracle Getter Functions Reverting Due to Overflows in OracleLibrary, TickMath, FullMath**
 
-  The GitHub issue concerns Oracle getter functions that occasionally revert due to an overflow issue. The issue is found in TickMath, FullMath, and OracleLibrary functions which are based on the Uniswap V3 core and periphery repositories. These functions don't handle an overflow correctly when a value exceeds 256 bits, causing execution to revert. The recommended solution is to wrap these functions in an unchecked block.
+  The issue concerns Oracle getter functions that occasionally revert due to an overflow issue. The issue is found in TickMath, FullMath, and OracleLibrary functions which are based on the Uniswap V3 core and periphery repositories. These functions don't handle an overflow correctly when a value exceeds 256 bits, causing execution to revert. The recommended solution is to wrap these functions in an unchecked block.
 
 
   **Link**: [Issue #3](https://github.com/hats-finance/Wise-Lending-0xa2ca45d6e249641e595d50d1d9c69c9e3cd22573/issues/3)
@@ -163,7 +163,7 @@ Breakdown by folder:
 
 - **Issue with Deposit on Unminted NFTs Causing Unexpected Calculation Errors**
 
-  The issue addresses a flaw in the NFT deposit system. It points out that a user can deposit on NFTs that haven't been minted yet. An attacker could exploit this by reserving NFTs for some users, then locking them out with a small deposit. In the same vein, an attacker could deposit on future NFTs and lock out new users. This bug can cause the 'enterFarm' function to fail and possibly lead to unexpected calculation errors. The testers provided a potential solidity script to reproduce the issue.
+  The issue addresses a flaw in the NFT deposit system. It points out that a user can deposit on NFTs that haven't been minted yet. An attacker could exploit this by reserving NFTs for some users, then locking them out with a small deposit. In the same vein, an attacker could deposit on future NFTs and lock out new users. This bug can cause the 'enterFarm' function to fail and possibly lead to unexpected calculation errors. 
 
 
   **Link**: [Issue #42](https://github.com/hats-finance/Wise-Lending-0xa2ca45d6e249641e595d50d1d9c69c9e3cd22573/issues/42)
@@ -196,7 +196,7 @@ Breakdown by folder:
 
 ## Conclusion
 
-The audit competition for the Wise Lending protocol revealed several low severity issues in the autonomous security infrastructure provided by Hats.finance. The audit involved a comprehensive examination of numerous aspects of Wise Lending's code, such as Chainlink Feed, Oracle getter functions, AaveHub function, liquidation logic, WiseOracleHub, and more. Various issues identified included inaccurate price reporting during market crashes leading to bad debt accumulation, the possibility of stuck residuals, the risk of unwanted liabilities for liquidators, and potential calculation errors caused by inaccuracies in the definition of a ‘Year’, among others. Each identified issue was accompanied by a proposed solution for resolving the problem. Overall, the developer teams need to address these issues for a more secure and reliable protocol operation.
+The audit competition for the Wise Lending protocol on the hats.finance platform revealed 11 low severity issues. The audit involved a comprehensive examination of numerous aspects of Wise Lending's code, such as Chainlink Feed, Oracle getter functions, AaveHub function, liquidation logic, WiseOracleHub, and more. Various issues identified included inaccurate price reporting during market crashes leading to bad debt accumulation, the possibility of stuck residuals, the risk of unwanted liabilities for liquidators, and potential calculation errors caused by inaccuracies in the definition of a ‘Year’, among others. Each identified issue was accompanied by a proposed solution for resolving the problem. 
 
 ## Disclaimer
 
@@ -204,3 +204,5 @@ The audit competition for the Wise Lending protocol revealed several low severit
 This report does not assert that the audited contracts are completely secure. Continuous review and comprehensive testing are advised before deploying critical smart contracts.
 The Wise Lending audit competition illustrates the collaborative effort in identifying and rectifying potential vulnerabilities, enhancing the overall security and functionality of the platform.
 Hats.finance does not provide any guarantee or warranty regarding the security of this project. Smart contract software should be used at the sole risk and responsibility of users.
+
+This report was generated with the help of openAI. 
